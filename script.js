@@ -9,17 +9,31 @@ const player2Scoreboard = document.getElementById("player2Scoreboard")
 const message = document.getElementById("message")
 const rollBtn = document.getElementById("rollBtn")
 const resetBtn = document.getElementById("resetBtn")
+const doubleBtn = document.getElementById("doubleBtn")
+
 
 function showDisplayButton(){
     rollBtn.style.display ="none"
     resetBtn.style.display = "block"
 }
 
+function randomRoll(){
+    return Math.floor(Math.random()* 6) + 1
+}
 
+function randomRollDoubleOrZero(){
+    return Math.floor(Math.random()* 7) 
+}
+
+
+doubleBtn.addEventListener("click", function(){
+    let randomNumber = randomRollDoubleOrZero() * 2
+    console.log(randomNumber)
+    
+})
 
 rollBtn.addEventListener("click", function(){
-const  randomNumber = Math.floor(Math.random()* 6) + 1
-  
+const  randomNumber = randomRoll()
 
     if (player1Turn) {    
         player1Dice.textContent = randomNumber
